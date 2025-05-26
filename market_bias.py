@@ -32,8 +32,20 @@ def get_market_bias():
   RSI: {float(latest['RSI'].item()):.2f}
   MACD: {float(latest['MACD'].item()):.2f}
   """
-  prompt = f"""Based on the following market data, provide a summary of the market bias and any potential risks or opportunities for Nasdaq Futures:
+  prompt = f"""Based on the following market data, provide a concise summary of the market bias and any potential risks or opportunities for Nasdaq Futures. Limit your response to 3 sentences and keep it under 500 characters:
   {raw_facts}
   """
   summary = chat_with_gpt(prompt)
+  summary = truncate_text(summary,500)  # Truncate to 500 characters
   return summary
+
+def truncate_text(text, max_chars=500):
+  if len(text) <= max_chars:
+    return text 
+  truncated = text[:max_chars]
+  last_period = truncated.rfind('.')
+  if last_period != -1 and last_period > max_chars * 0.5:
+    truncated = truncated[:last_period + 1]
+  else:
+    truncated = truncated.rstrip() + '...'
+  return truncated
