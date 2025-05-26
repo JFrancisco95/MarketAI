@@ -12,11 +12,12 @@ def load_tasks():
         return json.load(f)
 
 def save_tasks(tasks):
-    with open(TASKS_FILE, 'w') as f: json.dump(tasks, f, indent=2)
+    with open(TASKS_FILE, 'w') as f:
+        json.dump(tasks, f, indent=2)
 
 def add_task(task, due=None):
   tasks = load_tasks()
-  task.append({
+  tasks.append({
     'task': task,
     'due': due,
     'done': False,})

@@ -10,7 +10,7 @@ def get_market_bias():
   df['RSI'] = RSIIndicator(df['Close']).rsi()
   macd = MACD(df['Close'])
   df['MACD'] = macd.macd()
-  df['MACD_Signal'] = MACD.macd_signal()
+  df['MACD_Signal'] = macd.macd_signal()
   df['MACD_Diff'] = df['MACD'] - df['MACD_Signal']
 
   lastest = df.iloc[-1]
@@ -18,9 +18,9 @@ def get_market_bias():
   raw_facts = f"""Market Summary:
   Close: {lastest['Close']:.2f}
   SMA_20: {lastest['SMA_20']:.2f}
-  SMA_50: {lastest['SMA_50']:2f}
-  RSI: {lastest['RSI']:2f}
-  MACD:{lastest['MACD']:.2f}
+  SMA_50: {lastest['SMA_50']:.2f}
+  RSI: {lastest['RSI']:.2f}
+  MACD: {lastest['MACD']:.2f}
   """
   prompt = f"""Based on the following market data, provide a summary of the market bias and any potential risks or opportunities for Nasdaq Futures:
   {raw_facts}
