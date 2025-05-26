@@ -1,5 +1,5 @@
 # MarkertAI
-Basic Market power by AI
+Basic Market Analaysis powered by AI
 
 
 # Legal Stuff
