@@ -4,6 +4,9 @@ from task_manager import add_task, list_tasks, log_history, mark_done, load_task
 
 
 def main():
+  if not sys.stdin.isatty():
+      print("This script should be run in an interactive terminal.")
+      return
   while True:
     print("\nFinance Assistant Menu:")
     print("1. Get Market Bias")
