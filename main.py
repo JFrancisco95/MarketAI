@@ -1,3 +1,4 @@
+import sys
 from datetime import datetime
 from market_bias import get_market_bias
 from task_manager import add_task, list_tasks, log_history, mark_done, load_tasks, save_tasks, view_history
