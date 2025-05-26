@@ -1,5 +1,7 @@
-# MarkertAI
+# MarketAI
 Basic Market Analaysis powered by AI
+Has a task handler with core functioanilty but no AI intergration as of now
+bais needs more AI analaysis and possible tradingview intgration
 
 
 
